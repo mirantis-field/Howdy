@@ -6,3 +6,8 @@ services:
     build:
       context: .\Howdy
       dockerfile: Dockerfile
+    deploy:
+      placement:
+        constraints:
+          node.platform.os == windows
+          
