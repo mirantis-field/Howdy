@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  howdy:
+    image: ${DOCKER_REGISTRY}howdy
+    build:
+      context: .\Howdy
+      dockerfile: Dockerfile

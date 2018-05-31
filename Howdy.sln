@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howdy", "Howdy\Howdy.csproj", "{5FB42D36-ABB9-44D1-BFEB-938D59FC1D81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howdy.Tests", "Howdy.Tests\Howdy.Tests.csproj", "{57D51CBF-B8B5-4883-AA59-BCA7F5AD66D1}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E4081087-ECF1-4720-9B80-1CF4E07276AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FB42D36-ABB9-44D1-BFEB-938D59FC1D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB42D36-ABB9-44D1-BFEB-938D59FC1D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB42D36-ABB9-44D1-BFEB-938D59FC1D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB42D36-ABB9-44D1-BFEB-938D59FC1D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D51CBF-B8B5-4883-AA59-BCA7F5AD66D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D51CBF-B8B5-4883-AA59-BCA7F5AD66D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D51CBF-B8B5-4883-AA59-BCA7F5AD66D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D51CBF-B8B5-4883-AA59-BCA7F5AD66D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4081087-ECF1-4720-9B80-1CF4E07276AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4081087-ECF1-4720-9B80-1CF4E07276AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4081087-ECF1-4720-9B80-1CF4E07276AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4081087-ECF1-4720-9B80-1CF4E07276AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58D55883-5164-45B9-BD5B-605394573E01}
+	EndGlobalSection
+EndGlobal
