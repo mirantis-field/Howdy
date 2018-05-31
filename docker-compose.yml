@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   howdy:
-    image: ${DOCKER_REGISTRY}howdy
+    image: dtr.prod.arueth.dtcntr.net/demo/howdy:latest
     build:
       context: .\Howdy
       dockerfile: Dockerfile
