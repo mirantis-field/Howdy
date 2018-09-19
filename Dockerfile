@@ -1,7 +1,7 @@
 # ======================================
 # Build Stage
 # ======================================
-FROM microsoft/dotnet-framework:4.7.2-sdk AS build
+FROM microsoft/dotnet-framework:4.7.2-sdk
 WORKDIR /app
 
 # Restore dependencies with nuget
@@ -18,6 +18,6 @@ RUN msbuild /p:Configuration=Release
 # ======================================
 # Runtime Stage
 # ======================================
-FROM microsoft/aspnet:4.7.2 AS runtime
+FROM microsoft/aspnet:4.7.2
 WORKDIR /inetpub/wwwroot
 COPY --from=0 /app/Howdy/. ./
