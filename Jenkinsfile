@@ -43,17 +43,17 @@ node {
           }
     }
 
-    stage('Test') {
+/*    stage('Test') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-
+/*
          withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
             docker_image.inside {
               sh 'echo "Tests passed"'
             }
         }
     }
-
+*/
     stage('Push') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
@@ -100,7 +100,7 @@ node {
 
     stage('Deploy') {
         withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
-            sh "docker service update --image ${env.DOCKER_REGISTRY_HOSTNAME}/${env.DOCKER_IMAGE_NAMESPACE_PROD}/${env.DOCKER_IMAGE_REPOSITORY}:${DOCKER_IMAGE_TAG} ${env.DOCKER_SERVICE_NAME}"
+            sh "docker stack deploy -f docker-compose.yml ${env.DOCKER_SERVICE_NAME}"
         }
     }
 }
