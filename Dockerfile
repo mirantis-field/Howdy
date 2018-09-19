@@ -20,4 +20,4 @@ RUN msbuild /p:Configuration=Release
 # ======================================
 FROM microsoft/aspnet:4.7.2 AS runtime
 WORKDIR /inetpub/wwwroot
-COPY --from=build /app/Howdy/. ./
+COPY --from=0 /app/Howdy/. ./
