@@ -47,8 +47,10 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
-        docker_image.inside {
-            sh 'echo "Tests passed"'
+         withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
+            docker_image.inside {
+              sh 'echo "Tests passed"'
+            }
         }
     }
 
