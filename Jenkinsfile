@@ -87,7 +87,7 @@ node {
             if (!scan_result.check_completed_at.equals("0001-01-01T00:00:00Z")) {
                 scanning = false
             } else {
-                sleep 1
+                sleep 30
             }
 
         }
@@ -100,7 +100,7 @@ node {
 
     stage('Deploy') {
         withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
-            sh "docker stack deploy -f docker-compose.yml ${env.DOCKER_SERVICE_NAME}"
+            sh "docker stack deploy -c docker-compose.yml ${env.DOCKER_SERVICE_NAME}"
         }
     }
 }
