@@ -39,7 +39,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
          withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
-            docker_image = docker.build("${env.DOCKER_IMAGE_NAMESPACE_DEV}/${env.DOCKER_IMAGE_REPOSITORY}")
+            docker_image = docker.build("${env.DOCKER_IMAGE_NAMESPACE_DEV}/${env.DOCKER_IMAGE_REPOSITORY}", "--build-args constraint:node.platform.os==windows")
           }
     }
 
