@@ -99,7 +99,7 @@ node {
     }
 
     stage('Deploy') {
-      withEnv(['DOCKER_REGISTRY_HOSTNAME=${env.DOCKER_REGISTRY_HOSTNAME}'], ['DOCKER_SERVICE_NAME=${env.DOCKER_SERVICE_NAME}']) {
+      withEnv(['DOCKER_SERVICE_NAME=${env.DOCKER_IMAGE_TAG}']) {
         withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
             sh "docker stack deploy -c docker-compose.yml ${env.DOCKER_SERVICE_NAME}"
         }

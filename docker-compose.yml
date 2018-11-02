@@ -2,9 +2,7 @@ version: '3.3'
 
 services:
   howdy:
-    image: ${DOCKER_REGISTRY_HOSTNAME}/demo/howdy:${DOCKER_IMAGE_TAG}
-    ports:
-      - 80
+    image: dtr.west.us.se.dckr.org/demo/howdy:${DOCKER_IMAGE_TAG}
     deploy:
       placement:
         constraints:
