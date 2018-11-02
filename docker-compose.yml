@@ -2,11 +2,13 @@ version: '3.4'
 
 services:
   howdy:
-    image: dtr.prod.arueth.dtcntr.net/demo/howdy:latest
-    build:
-      context: .\Howdy
-      dockerfile: Dockerfile
+    image: ${DOCKER_REGISTRY_HOSTNAME}/demo/howdy:${DOCKER_IMAGE_TAG}
+    ports:
+      - 80
     deploy:
       placement:
         constraints:
           - node.platform.os == windows
+      label:
+        com.docker.lb.hosts: howdy.west.us.se.dckr.org
+        com.docker.lb.port: 80
