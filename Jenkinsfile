@@ -12,7 +12,8 @@ node {
                          'DOCKER_REGISTRY_URI',
                          'DOCKER_REGISTRY_CREDENTIALS_ID',
                          'DOCKER_UCP_URI',
-                         'DOCKER_SERVICE_NAME' ]
+                         'DOCKER_SERVICE_NAME',
+                         'DOCKER_BUILD_OS_TYPE' ]
 
 
         fail = 0
@@ -39,8 +40,9 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
          withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
-            docker_image = docker.build("${env.DOCKER_IMAGE_NAMESPACE_DEV}/${env.DOCKER_IMAGE_REPOSITORY}", "--build-arg constraint:ostype==windows .")
+            docker_image = docker.build("${env.DOCKER_IMAGE_NAMESPACE_DEV}/${env.DOCKER_IMAGE_REPOSITORY}", "--build-arg constraint:ostype==${DOCKER_BUILD_OS_TYPE} .")
           }
+
     }
 
 /*    stage('Test') {
@@ -99,7 +101,10 @@ node {
     }
 
     stage('Deploy') {
-      withEnv(["DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}"]) {
+      withEnv(["DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}",
+               "DOCKER_REGISTRY_HOSTNAME=${env.DOCKER_REGISTRY_HOSTNAME}",
+               "DOCKER_IMAGE_NAMESPACE_PROD=${env.DOCKER_IMAGE_NAMESPACE_PROD}",
+               "DOCKER_IMAGE_REPOSITORY=${env.DOCKER_IMAGE_REPOSITORY}"]) {
         withDockerServer([credentialsId: env.DOCKER_UCP_CREDENTIALS_ID, uri: env.DOCKER_UCP_URI]) {
             sh "docker stack deploy -c docker-compose.yml ${env.DOCKER_SERVICE_NAME}"
         }

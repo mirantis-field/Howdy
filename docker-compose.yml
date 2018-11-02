@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   howdy:
-    image: dtr.west.us.se.dckr.org/demo/howdy:${DOCKER_IMAGE_TAG}
+    image: ${DOCKER_REGISTRY_HOSTNAME}/${DOCKER_IMAGE_NAMESPACE_PROD}/${DOCKER_IMAGE_REPOSITORY}:${DOCKER_IMAGE_TAG}
     deploy:
       placement:
         constraints:
