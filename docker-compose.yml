@@ -9,5 +9,4 @@ services:
     deploy:
       placement:
         constraints:
-          node.platform.os == windows
-          
+          - node.platform.os == windows
