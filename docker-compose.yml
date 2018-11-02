@@ -9,6 +9,6 @@ services:
       placement:
         constraints:
           - node.platform.os == windows
-      label:
+      labels:
         com.docker.lb.hosts: howdy.west.us.se.dckr.org
         com.docker.lb.port: 80
