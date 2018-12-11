@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>Hi Joe</h1>
+        <h1>ASP.Net</h1>
         <hr />
         <h2 style="text-align:center;">Container ID:&nbsp;<span class="text-primary" style="font-weight:bold;border:3px solid;padding:5px;"><asp:Literal id="Headline" runat=server /></span></h2>
         <hr />
